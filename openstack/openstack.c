@@ -58,6 +58,7 @@ void openstack_init(void) {
    //-- 02a-TSCH
    adaptive_sync_init();
    ieee154e_init();
+   sht11_turnon();
    //-- 02b-RES
    schedule_init();
    sixtop_init();

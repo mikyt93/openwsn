@@ -495,6 +495,17 @@ status information about several modules in the OpenWSN stack.
 
 \returns TRUE if this function printed something, FALSE otherwise.
 */
+bool debugPrint_telosbTmp(void){
+	uint16_t output;
+	output=sht11_cal_temp();
+	openserial_printStatus(
+			STATUS_TELOSB_TMP,
+			(uint8_t*)&output,
+			sizeof(output)
+	);
+	return TRUE;
+}
+
 bool debugPrint_myDAGrank() {
    uint16_t output;
    
@@ -607,6 +618,8 @@ void timer_sixtop_management_fired(void) {
       case 0:
          // called every ADVTIMEOUT seconds
          sixtop_sendEB();
+         uint32_t temperature;
+         temperature=sht11_cal_temp();
          break;
       case 1:
          // called every ADVTIMEOUT seconds

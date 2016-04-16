@@ -12,6 +12,9 @@ sources_c = [
     os.path.join('02a-MAClow','IEEE802154.c'),
     os.path.join('02a-MAClow','IEEE802154E.c'),
     os.path.join('02a-MAClow','adaptive_sync.c'),
+    os.path.join('02a-MAClow','sht11.c'),
+    os.path.join('02a-MAClow','sht11.h'),
+    os.path.join('02a-MAClow','sht11_port.h'),
     #=== 02b-MAChigh
     os.path.join('02b-MAChigh','neighbors.c'),
     os.path.join('02b-MAChigh','otf.c'),

@@ -71,6 +71,7 @@ owerror_t sixtop_send(OpenQueueEntry_t *msg);
 void      task_sixtopNotifSendDone(void);
 void      task_sixtopNotifReceive(void);
 // debugging
+bool	  debugPrint_telosbTmp(void);
 bool      debugPrint_myDAGrank(void);
 bool      debugPrint_kaPeriod(void);
 

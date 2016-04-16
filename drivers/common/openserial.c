@@ -321,6 +321,10 @@ void openserial_startOutput() {
          if (debugPrint_kaPeriod()==TRUE) {
             break;
          }
+      case STATUS_TELOSB_TMP:
+    	  if(debugPrint_telosbTmp()==TRUE){
+    		  break;
+    	  }
       default:
          DISABLE_INTERRUPTS();
          openserial_vars.debugPrintCounter=0;

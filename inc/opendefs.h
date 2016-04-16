@@ -100,7 +100,8 @@ enum {
    STATUS_QUEUE                        =  8,
    STATUS_NEIGHBORS                    =  9,
    STATUS_KAPERIOD                     = 10,
-   STATUS_MAX                          = 11,
+   STATUS_TELOSB_TMP				   = 11,
+   STATUS_MAX                          = 12,
 };
 
 //component identifiers
