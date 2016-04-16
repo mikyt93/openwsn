@@ -155,6 +155,7 @@ enum {
    COMPONENT_TECHO                     = 0x20,
    COMPONENT_TOHLONE                   = 0x21,
    COMPONENT_UECHO                     = 0x22,
+   COMPONENT_BEACON					   = 0x24,
 };
 
 /**
@@ -171,6 +172,9 @@ enum {
    ERR_GETDATA_ASKS_TOO_FEW_BYTES      = 0x03, // getData asks for too few bytes, maxNumBytes={0}, fill level={1}
    ERR_INPUT_BUFFER_OVERFLOW           = 0x04, // the input buffer has overflown
    ERR_COMMAND_NOT_ALLOWED             = 0x05, // the command is not allowerd, command = {0} 
+   ERR_BEACON_NR					   = 0x3A, // transmitting BEACON number : {0}
+   ERR_BEACON_OVERFLOWN				   = 0x3B, // BEACON transmission OVERFLOWN, already sent : {0} BEACONS
+   ERR_BEACON_FULL					   = 0x3C, // critical number of BEACONS sent ({0})
    // l4
    ERR_WRONG_TRAN_PROTOCOL             = 0x06, // unknown transport protocol {0} (code location {1})
    ERR_WRONG_TCP_STATE                 = 0x07, // wrong TCP state {0} (code location {1})

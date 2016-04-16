@@ -19,6 +19,7 @@
 
 //=========================== variables =======================================
 
+uint8_t Beacons;
 sixtop_vars_t sixtop_vars;
 
 //=========================== prototypes ======================================
@@ -116,7 +117,7 @@ bool          sixtop_areAvailableCellsToBeScheduled(
 //=========================== public ==========================================
 
 void sixtop_init() {
-   
+   Beacons=0;
    sixtop_vars.periodMaintenance  = 872 +(openrandom_get16b()&0xff);
    sixtop_vars.busySendingKA      = FALSE;
    sixtop_vars.busySendingEB      = FALSE;
@@ -686,6 +687,22 @@ port_INLINE void sixtop_sendEB() {
    
    // I'm now busy sending an ADV
    sixtop_vars.busySendingEB = TRUE;
+   if(Beacons<4){
+	   openserial_printInfo(COMPONENT_BEACON,ERR_BEACON_NR,
+			   (errorparameter_t)Beacons,
+			   (errorparameter_t)0);
+   }
+   else if(Beacons==4){
+	   openserial_printError(COMPONENT_BEACON,ERR_BEACON_OVERFLOWN,
+	   			   (errorparameter_t)Beacons,
+	   			   (errorparameter_t)0);
+   }
+   else {
+	   openserial_printCritical(COMPONENT_BEACON,ERR_BEACON_FULL,
+	   			   (errorparameter_t)Beacons,
+	   			   (errorparameter_t)0);
+   }
+   Beacons++;
 }
 
 /**
