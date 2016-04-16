@@ -70,6 +70,11 @@ enum IEEE802154_fcf_addr_mode_enums {
    IEEE154_ADDR_EXT                    = 3,
 };
 
+enum IEEE802154_command_frame_identifier {
+	IEEE154_CMD_REQ					   = 21,
+	IEEE154_CMD_RES					   = 22,
+};
+
 //=========================== typedef =========================================
 
 typedef struct {

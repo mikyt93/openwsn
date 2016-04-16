@@ -18,6 +18,7 @@
 #include "adaptive_sync.h"
 #include "IEEE802154E.h"
 //-- 02b-RES
+#include "myschedule.h"
 #include "schedule.h"
 #include "sixtop.h"
 #include "neighbors.h"
@@ -59,6 +60,7 @@ void openstack_init(void) {
    adaptive_sync_init();
    ieee154e_init();
    //-- 02b-RES
+   mySchedule_init();
    schedule_init();
    sixtop_init();
    neighbors_init();

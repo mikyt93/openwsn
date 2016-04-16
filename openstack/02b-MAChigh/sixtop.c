@@ -1,3 +1,4 @@
+#include "myschedule.h"
 #include "opendefs.h"
 #include "sixtop.h"
 #include "openserial.h"
@@ -402,6 +403,9 @@ void task_sixtopNotifSendDone() {
       case COMPONENT_SIXTOP_RES:
          sixtop_six2six_sendDone(msg,msg->l2_sendDoneError);
          break;
+      case COMPONENT_MYSCHEDULE:
+    	  mySchedule_notifySendDone(msg);
+    	  break;
       
       default:
          // send the rest up the stack
@@ -461,7 +465,7 @@ void task_sixtopNotifReceive() {
    switch (msg->l2_frameType) {
       case IEEE154_TYPE_BEACON:
       case IEEE154_TYPE_DATA:
-      case IEEE154_TYPE_CMD:
+      //case IEEE154_TYPE_CMD:
          if (msg->length>0) {
             // send to upper layer
             iphc_receive(msg);
@@ -470,6 +474,9 @@ void task_sixtopNotifReceive() {
             openqueue_freePacketBuffer(msg);
          }
          break;
+      case IEEE154_TYPE_CMD:
+    	  mySchedule_receive(msg);
+    	  break;
       case IEEE154_TYPE_ACK:
       default:
          // free the packet's RAM memory

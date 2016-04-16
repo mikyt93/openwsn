@@ -155,6 +155,7 @@ enum {
    COMPONENT_TECHO                     = 0x20,
    COMPONENT_TOHLONE                   = 0x21,
    COMPONENT_UECHO                     = 0x22,
+   COMPONENT_MYSCHEDULE				   = 0x24,
 };
 
 /**
