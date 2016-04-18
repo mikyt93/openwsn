@@ -1649,7 +1649,7 @@ port_INLINE bool isValidRxFrame(ieee802154_header_iht* ieee802514_header) {
           (
              ieee802514_header->frameType==IEEE154_TYPE_DATA                   ||
              ieee802514_header->frameType==IEEE154_TYPE_BEACON				   ||
-			 ieee802514_header->frametype==IEEE154_TYPE_CMD
+			 ieee802514_header->frameType==IEEE154_TYPE_CMD
           )                                                                                        && \
           packetfunctions_sameAddress(&ieee802514_header->panid,idmanager_getMyID(ADDR_PANID))     && \
           (
